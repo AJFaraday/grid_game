@@ -5,13 +5,16 @@ That's right, there's no particular concept to it yet.
 ## What is the game?
 
 * The game is played on a square grid.
-* Each player has a colour, and starts with one city.
+* Each player starts with one city, cities have 10 health.
 * Each players army marches in one direction at any one time.
 * On periodical turns, every city sends one soldier in their players directionn.
 * Every turn, each soldier takes one step in its players direction.
 * When a soldier hits an obstacle, they stop.
-* When a soldier meets another solder belonging to the same player, they team up.
+* When allied soldiers meet, they team up.
 * When 10 soldiers team up, they form a city.
+* Every turn, each soldier does one damage to each of its non-alied units or cities.
+* One damage is enough to kill one soldier, or one tenth of a city.
+* The game ends when only one player remains on the map.
 
 ## Files
 
@@ -21,3 +24,4 @@ That's right, there's no particular concept to it yet.
 * lib/data - bits of js data/config
 * lib/classes - constructors
 * lib/turn_phases - additions to /lib/classes/tile.js for specifc phases of turns
+* style/grid_game.css - The styling information.
