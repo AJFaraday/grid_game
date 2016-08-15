@@ -12,7 +12,7 @@ That's right, there's no particular concept to it yet.
 * The game is played on a square grid.
 * Each player starts with one city, cities have 10 health.
 * Each players army marches in one direction at any one time.
-* On periodical turns, every city sends one soldier in their players directionn.
+* On periodical turns, every city sends one soldier in their players direction.
 * Every turn, each soldier takes one step in its players direction.
 * When a soldier hits an obstacle, they stop.
 * When allied soldiers meet, they team up.
