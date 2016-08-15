@@ -105,3 +105,24 @@ table.game_board tr.row td.tile_yellow {
   color: orangered;
 }
 
+
+.footer {
+  float:left;
+  width: 100%;
+  font-size: 20px;
+  color: darkgrey;
+}
+
+.footer p a{
+  font-weight: bold;
+  text-decoration: none;
+  color: darkgrey;
+}
+
+.footer p a:visited{
+  font-weight: bold;
+}
+
+.footer p a:hover{
+  font-weight: bolder;
+}
