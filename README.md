@@ -2,6 +2,11 @@
 
 That's right, there's no particular concept to it yet.
 
+## How to play
+
+* Download the git repository from https://github.com/ajfaraday/grid_game
+* Open index.html in a browser
+
 ## What is the game?
 
 * The game is played on a square grid.
