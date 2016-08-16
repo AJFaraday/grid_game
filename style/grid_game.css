@@ -21,6 +21,8 @@
   font-size: 28px;
   text-align: center;
   padding: 0px;
+  vertical-align: middle;
+  line-height: 30px;
 }
 
 .player_panel .btn.north {
@@ -81,7 +83,7 @@ table.game_board tr.row td.tile {
   height: 32px;
   width: 32px;
   text-align: center;
-  border: 1px black solid;
+  border: 1px darkgrey solid;
   font-size: 28px;
 }
 
@@ -103,6 +105,10 @@ table.game_board tr.row td.tile_blue {
 table.game_board tr.row td.tile_yellow {
   background-color: yellow;
   color: orangered;
+}
+
+table.game_board tr.row td.tile_city small {
+  font-size:10px;
 }
 
 
