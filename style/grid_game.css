@@ -115,7 +115,7 @@ table.game_board tr.row td.tile_city small {
 .footer {
   float:left;
   width: 100%;
-  font-size: 20px;
+  font-size: 16px;
   color: darkgrey;
 }
 
