@@ -84,7 +84,7 @@ table.game_board tr.row td.tile {
   width: 32px;
   text-align: center;
   border: 1px darkgrey solid;
-  font-size: 28px;
+  font-size: 26px;
 }
 
 table.game_board tr.row td.tile_green {
