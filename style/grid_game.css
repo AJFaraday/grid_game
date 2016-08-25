@@ -80,8 +80,8 @@ table.game_board tr.row {
 }
 
 table.game_board tr.row td.tile {
-  height: 32px;
-  width: 32px;
+  height: 34px;
+  width: 34px;
   text-align: center;
   border: 1px darkgrey solid;
   font-size: 24px;
