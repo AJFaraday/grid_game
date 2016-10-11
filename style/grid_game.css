@@ -111,6 +111,10 @@ table.game_board tr.row td.tile_city small {
   font-size:10px;
 }
 
+table.game_board tr.row td.tile_rock {
+  background-color: #777777;
+  color: #444444;
+}
 
 .footer {
   float:left;
