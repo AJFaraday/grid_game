@@ -1,3 +1,8 @@
+h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 #game_space {
 
 }
@@ -85,6 +90,7 @@ table.game_board tr.row td.tile {
   text-align: center;
   border: 1px darkgrey solid;
   font-size: 26px;
+  padding: 0px;
 }
 
 table.game_board tr.row td.tile_green {
