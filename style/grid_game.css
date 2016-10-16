@@ -113,13 +113,17 @@ table.game_board tr.row td.tile_yellow {
   color: orangered;
 }
 
-table.game_board tr.row td.tile_city small {
+table.game_board tr.row td.tile small {
   font-size:10px;
 }
 
 table.game_board tr.row td.tile_rock {
   background-color: #777777;
-  color: #444444;
+}
+
+table.game_board tr.row td.tile_wall {
+  background-color: #ff190E;
+  color: #dddddd;
 }
 
 .footer {
