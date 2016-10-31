@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Nothing to see here</title>
+  <script type='text/javascript' src='./public/lib/external/jquery-3.1.0.min.js'></script>
+  <script type='text/javascript'>
+    $(document).ready(function () {
+      s = new WebSocket('ws://0.0.0.0:8080?config=test');
+      s.grid_game = {};
+
+      s.onclose = function () {
+        console.log('connection closed')
+      };
+
+      s.onmessage = function (e) {
+        console.log(e.data);
+        $('#readout').append(e.data).append("<br/>");
+        $('html').animate({scrollTop: $(document).height()}, 0);
+        var data = JSON.parse(e.data);
+        if (data.action == 'join' && s.grid_game.player == null) {
+          s.grid_game.player = data.player;
+        }
+      };
+
+      $(document).on(
+        'keydown',
+        function (e) {
+          e.preventDefault();
+          var dir;
+          switch (e.keyCode) {
+            case 37:
+              dir = 'west';
+              break;
+            case 38:
+              dir = 'north';
+              break;
+            case 39:
+              dir = 'east';
+              break;
+            case 40:
+              dir = 'south';
+              break;
+          }
+          if (dir == null) {return null}
+          s.send(
+            JSON.stringify(
+              {
+                action: 'direction',
+                player: s.grid_game.player,
+                direction: dir
+              }
+            )
+          );
+        }
+      )
+    });
+
+
+  </script>
+
+</head>
+<body>
+<div id='readout'></div>
+</body>
+</html>
