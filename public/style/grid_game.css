@@ -1,0 +1,148 @@
+h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#game_space {
+
+}
+
+#player_panels {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.player_panel {
+  position: relative;
+  height: 60px;
+  width: 90px;
+  float: left;
+}
+
+.player_panel .btn {
+  width: 30px;
+  height: 30px;
+  font-size: 28px;
+  text-align: center;
+  padding: 0px;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+.player_panel .btn.north {
+  position: absolute;
+  top: 0px;
+  left: 30px;
+}
+
+.player_panel .btn.west {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+
+.player_panel .btn.south {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.player_panel .btn.east {
+  position: absolute;
+  top: 30px;
+  left: 60px;
+}
+
+.player_panel.red {
+  background-color: lightpink;
+}
+
+.player_panel.blue {
+  background-color: lightblue;
+}
+
+.player_panel.yellow {
+  background-color: yellow;
+}
+
+.player_panel.green {
+  background-color: lightgreen;
+}
+
+#board_space {
+
+}
+
+table.game_board {
+  border-spacing: 0;
+  border-collapse: collapse;
+
+}
+
+table.game_board tr.row {
+
+}
+
+table.game_board tr.row td.tile {
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  border: 1px darkgrey solid;
+  font-size: 26px;
+  padding: 0px;
+}
+
+table.game_board tr.row td.tile_green {
+  background-color: lightgreen;
+  color: darkgreen;
+}
+
+table.game_board tr.row td.tile_red {
+  background-color: lightpink;
+  color: red;
+}
+
+table.game_board tr.row td.tile_blue {
+  background-color: lightblue;
+  color: blue;
+}
+
+table.game_board tr.row td.tile_yellow {
+  background-color: yellow;
+  color: orangered;
+}
+
+table.game_board tr.row td.tile small {
+  font-size:10px;
+}
+
+table.game_board tr.row td.tile_rock {
+  background-color: #777777;
+}
+
+table.game_board tr.row td.tile_wall {
+  background-color: #ff190E;
+  color: #dddddd;
+}
+
+.footer {
+  float:left;
+  width: 100%;
+  font-size: 16px;
+  color: darkgrey;
+}
+
+.footer p a{
+  font-weight: bold;
+  text-decoration: none;
+  color: darkgrey;
+}
+
+.footer p a:visited{
+  font-weight: bold;
+}
+
+.footer p a:hover{
+  font-weight: bolder;
+}
