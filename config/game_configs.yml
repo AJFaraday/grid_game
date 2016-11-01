@@ -3,3 +3,7 @@ test:
     - a
     - b
     - c
+dev:
+  players:
+    - red
+    - green

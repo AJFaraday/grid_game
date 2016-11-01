@@ -71,8 +71,6 @@ Example:
 {"action": "stop"}
 ```
 
-## Actions Up
-
 ### direction
 
 Meaning: 
@@ -92,5 +90,6 @@ Example:
 }
 ```
 
+_Note:_ this is also an action up, sent up exactly the way it came down.
 
 

@@ -3,7 +3,7 @@ GridGame.player_components.control_panel = function() {
   this.init_control_panel = function() {
     if(
       (GridGame.mode == 'local' && this.playable) ||
-      (GridGame.mode == 'web' && this.name == 'red') // #TODO socket defined colour  
+      (GridGame.mode == 'web' && this.name == GridGame.active_player)  
     ) {
       this.panel = $('<div>');
       this.panel.addClass('player_panel');

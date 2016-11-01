@@ -29,9 +29,9 @@ var GridGame = {
         this.start();
         break;
       case 'web':
-        //this.socket = new GridGame.classes.WebSocket();
-        this.draw_board();
-        this.start();
+        this.socket = new GridGame.classes.socket();
+        this.socket.init();
+        // the socket will init the game when it's time.
         break;
     }
   },
@@ -54,7 +54,7 @@ var GridGame = {
   init_dom: function() {
     this.player_panels = $('<div>');
     this.player_panels.attr('id', 'player_panels');
-    this.game_space.append(this.player_panels);
+    this.game_space.html(this.player_panels);
 
     this.board_dom = $('<div>');
     this.board_dom.attr('id', 'board');
@@ -116,6 +116,10 @@ var GridGame = {
 
   spawning_turn: function () {
     return (this.turn_number % this.spawn_interval == 0);
+  },
+
+  player: function(name) {
+    return $.grep(this.players, function(p){ return p.name == name; })[0];
   },
 
   // All are marked dead at the start of the turn

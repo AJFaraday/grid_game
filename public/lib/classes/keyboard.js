@@ -8,7 +8,7 @@ GridGame.classes.keyboard = function() {
       function(i, player) {
         if(
           (GridGame.mode == 'local' && player.config.playable) ||
-          (GridGame.mode == 'web' && player.name == 'red') // #TODO from web socket
+          (GridGame.mode == 'web' && player.name == GridGame.active_player)
         ) {
           $.each(
             player.key_map,
@@ -34,6 +34,12 @@ GridGame.classes.keyboard = function() {
           if(command) {
             e.preventDefault();
             command.player.change_direction(command.direction);
+            if (GridGame.socket != null) {
+              GridGame.socket.send_direction(
+                command.player.name,
+                command.direction
+              )
+            }
           }
         }
       );
