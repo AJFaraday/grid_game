@@ -14,6 +14,7 @@ var GridGame = {
     this.turn_time = GridGame.data.game.turn_time;
     this.spawn_interval = GridGame.data.game.spawn_interval;
     this.city_conversion_size = GridGame.data.game.city_conversion_size;
+    this.mode = GridGame.data.game.mode;
 
     this.rock_count = GridGame.data.game.rock_count;
     this.wall_count = GridGame.data.game.wall_count;
@@ -22,14 +23,28 @@ var GridGame = {
     this.game_space = $('#grid_game');
     this.turn_number = 0;
 
+    switch (this.mode) {
+      case 'local':
+        this.draw_board();
+        this.start();
+        break;
+      case 'web':
+        //this.socket = new GridGame.classes.WebSocket();
+        this.draw_board();
+        this.start();
+        break;
+    }
+  },
+
+  draw_board: function (){
     this.init_dom();
     this.init_board();
     this.init_players();
-    this.init_obstacles();  
+    this.init_obstacles();
     this.init_keyboard();
-    GridGame.board.draw();
-
-    this.focus_board()
+    this.board.draw();
+    this.focus_board();
+    this.turn();
   },
 
   focus_board: function() {
@@ -40,12 +55,12 @@ var GridGame = {
     this.player_panels = $('<div>');
     this.player_panels.attr('id', 'player_panels');
     this.game_space.append(this.player_panels);
-    
+
     this.board_dom = $('<div>');
     this.board_dom.attr('id', 'board');
     this.game_space.append(this.board_dom);
   },
-  
+
   init_players: function() {
     this.players = [];
     $.each(
@@ -72,7 +87,7 @@ var GridGame = {
     this.board.place_n_obstacles('rock', this.rock_count);
     this.board.place_n_obstacles('wall', this.wall_count);
   },
-   
+
   // Operation
 
   start: function () {
@@ -159,6 +174,4 @@ var GridGame = {
 
 $(window).ready(function () {
   GridGame.init();
-  GridGame.turn();
-  GridGame.start();
 });

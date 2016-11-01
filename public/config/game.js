@@ -1,4 +1,5 @@
 GridGame.data.game = {
+  mode: 'web', // web, local
   width: 20,
   height: 12,
   turn_time: 100,

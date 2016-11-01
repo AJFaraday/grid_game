@@ -24,6 +24,11 @@ GridGame.data.key_maps = {
     100: 'west',  // 4
     101: 'south', // 5
     102: 'east'   // 6
- 
+  },
+  single: { // used in 'web' mode
+    38: 'north', // up
+    37: 'west',  // left
+    40: 'south', // down
+    39: 'east'   // right
   }
 };

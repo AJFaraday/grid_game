@@ -6,7 +6,15 @@ GridGame.classes.player = function (config) {
   this.config = config;
   this.name = config.name;
   this.playable = config.playable;
-  this.key_map = GridGame.data.key_maps[this.name];
+  
+  switch (GridGame.mode) {
+    case 'local':
+      this.key_map = GridGame.data.key_maps[this.name];
+      break;
+    case 'web':
+      this.key_map = GridGame.data.key_maps['single'];
+      break;
+  }
 
   this.direction = config.direction;
   this.dead = false;
@@ -42,7 +50,7 @@ GridGame.classes.player = function (config) {
     var target_is_city = target.city;
     var target_already_stepped_to = target.changed_player;
     var target_is_rock = target.rock;
-    var target_is_wall = target.wall; // TODO and wall has health
+    var target_is_wall = target.wall;
     return (
       target_present &&
       (target_unowned || target_belongs_to_me) &&

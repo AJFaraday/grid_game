@@ -6,7 +6,10 @@ GridGame.classes.keyboard = function() {
     $.each(
       GridGame.players,
       function(i, player) {
-        if (player.config.playable) {
+        if(
+          (GridGame.mode == 'local' && player.config.playable) ||
+          (GridGame.mode == 'web' && player.name == 'red') // #TODO from web socket
+        ) {
           $.each(
             player.key_map,
             function(keycode, direction) {
@@ -24,17 +27,16 @@ GridGame.classes.keyboard = function() {
 
   this.set_key_event = function() {
     var keyboard = this;
-    $('body').off('keydown');
-    $('body').on(
-      'keydown',
-      function(e) {
-        var command = keyboard.key_map[e.keyCode];
-        if (command) {
-          e.preventDefault();
-          command.player.change_direction(command.direction);
+    $('body')
+      .off('keydown')
+      .on('keydown', function(e) {
+          var command = keyboard.key_map[e.keyCode];
+          if(command) {
+            e.preventDefault();
+            command.player.change_direction(command.direction);
+          }
         }
-      }
-    );
+      );
   };
 
 };

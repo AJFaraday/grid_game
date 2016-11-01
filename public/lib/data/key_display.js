@@ -22,5 +22,11 @@ GridGame.data.key_display = {
     west: "4",
     south: "5",
     east: "6"
+  },
+  single: {
+    north: "\u2B06",
+    west: "\u2B05",
+    south: "\u2B07",
+    east: "\u27A1"
   }
 };
