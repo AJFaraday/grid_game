@@ -1,5 +1,5 @@
 GridGame.data.socket = {
-  server: '0.0.0.0',
+  server: 'match.andrewfaraday.com',
   socket: '8080',
   config: 'dev'
 };
