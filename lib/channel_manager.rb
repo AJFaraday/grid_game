@@ -25,8 +25,7 @@ module GridGame
       @configs = get_configs
     end
 
-    def join_channel(name)
-      channel = get_channel(name)
+    def join_channel(channel)
       {
         player: channel.next_player,
         status: (channel.full? ? 'start' : 'waiting'),
@@ -35,8 +34,6 @@ module GridGame
       }
     end
 
-    private
-
     def get_channel(name)
       channel = @channels[name]
       if channel.nil? or channel.full?
@@ -44,6 +41,8 @@ module GridGame
       end
       channel
     end
+
+    private
 
     def get_configs
       file_path = File.join(File.dirname(__FILE__), '..', 'config', 'game_configs.yml')

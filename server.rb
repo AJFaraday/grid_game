@@ -14,8 +14,8 @@ EventMachine.run do
       puts 'Opening connection'
       params = CGI::parse(handshake.query_string)
       if params['config']
-
-        channel_attrs = @channel_manager.join_channel(params['config'][0])
+        channel = @channel_manager.get_channel(params['config'][0])
+        channel_attrs = @channel_manager.join_channel(channel)
         em_channel = channel_attrs.delete(:em_channel)
         player = channel_attrs[:player]
         socket_id = em_channel.subscribe { |msg| ws.send msg }
@@ -30,10 +30,11 @@ EventMachine.run do
 
         ws.onclose do
           em_channel.unsubscribe(socket_id)
-          if em_channel.num_subscribers == 1
+          if em_channel.num_subscribers >= 1
             em_channel.push(@message_handler.stop_action)
           else
-            em_channel.push(@message_handler.left_action(player))
+            puts 'resetting channel'
+            channel.reset_cursor
           end
         end
       end

@@ -52,13 +52,12 @@ GridGame.classes.socket = function() {
       }
     },
 
-    // Another player has left
-    left: function(data, socket) {
-      // TODO nothing
-    },
-
     stop: function(data, socket) {
-
+      GridGame.stop();
+      GridGame.game_space.append(
+        $('<h1>').html('Your opponent left! You win!')
+      );
+      GridGame.wipe_out_opponents();
     },
 
     direction: function(data, socket) {

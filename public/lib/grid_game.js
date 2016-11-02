@@ -172,6 +172,22 @@ var GridGame = {
     // TODO something more impressive here.
     console.log('the game is over!');
     GridGame.stop();
+  },
+
+  wipe_out_opponents: function() {
+    console.log('wiping out opponents');
+    if (GridGame.active_player != null) {
+      console.log('wiping out all but ' + GridGame.active_player);
+      GridGame.board.each_tile(
+        function(tile) {
+          if (tile.player && tile.player.name != GridGame.active_player) {
+            console.log("killing " + tile.x +':'+tile.y);
+            tile.kill();
+          }
+        }
+      );
+      GridGame.board.draw();
+    }
   }
 
 };

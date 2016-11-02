@@ -26,12 +26,17 @@ module GridGame
 
     def initialize(config)
       @config = config
+      #@config['players'].shuffle!
       @event_machine_channel = EventMachine::Channel.new
-
     end
 
     def current_player
       @config['players'][@player_cursor || 0]
+    end
+
+    def reset_cursor
+      #@config['players'].shuffle!
+      @player_cursor = nil
     end
 
     def next_player
