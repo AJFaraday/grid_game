@@ -23,11 +23,12 @@ module GridGame
   class Channel
 
     attr_reader(:event_machine_channel)
+    attr_accessor :started
 
     def initialize(config)
       @config = config
-      #@config['players'].shuffle!
       @event_machine_channel = EventMachine::Channel.new
+      @started = false
     end
 
     def current_player
@@ -35,7 +36,7 @@ module GridGame
     end
 
     def reset_cursor
-      #@config['players'].shuffle!
+      @started = false
       @player_cursor = nil
     end
 

@@ -25,16 +25,20 @@ EventMachine.run do
 
         ws.onmessage do |msg|
           puts msg
+          puts channel.started
           em_channel.push("#{msg}")
         end
 
         ws.onclose do
           em_channel.unsubscribe(socket_id)
-          if em_channel.num_subscribers >= 1
-            em_channel.push(@message_handler.stop_action)
-          else
+          if !channel.started
             puts 'resetting channel'
             channel.reset_cursor
+            em_channel.push(@message_handler.reload_action)
+          elsif em_channel.num_subscribers == 1
+            em_channel.push(@message_handler.win_action)
+          elsif em_channel.num_subscribers > 1
+            em_channel.push(@message_handler.leave_action(player))
           end
         end
       end

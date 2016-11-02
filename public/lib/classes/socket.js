@@ -40,19 +40,19 @@ GridGame.classes.socket = function() {
     join: function(data, socket) {
       if(GridGame.active_player == null) {
         GridGame.active_player = data.player;
+        $('#grid_game').html(socket.waiting_message(data.player));
       }
-      switch(data.status) {
-        case 'waiting':
-          $('#grid_game').html(socket.waiting_message(data.player));
-          break;
-        case 'start':
-          GridGame.draw_board();
-          GridGame.start();
-          break;
+      if(data.status == 'start') {
+        GridGame.draw_board();
+        GridGame.start();
       }
     },
 
-    stop: function(data, socket) {
+    leave: function(data, socket) {
+      GridGame.clear_player(data.player);
+    },
+
+    win: function(data, socket) {
       GridGame.stop();
       GridGame.game_space.append(
         $('<h1>').html('Your opponent left! You win!')
@@ -63,7 +63,12 @@ GridGame.classes.socket = function() {
     direction: function(data, socket) {
       console.log(data);
       GridGame.player(data.player).change_direction(data.direction)
+    },
+
+    reload: function(data, socket) {
+      location.reload();
     }
+
   }
 
 };

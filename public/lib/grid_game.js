@@ -8,7 +8,7 @@ var GridGame = {
   player_components: {},
   resize: {},
 
-  init: function () {
+  init: function() {
     this.width = GridGame.data.game.width;
     this.height = GridGame.data.game.height;
     this.turn_time = GridGame.data.game.turn_time;
@@ -23,7 +23,7 @@ var GridGame = {
     this.game_space = $('#grid_game');
     this.turn_number = 0;
 
-    switch (this.mode) {
+    switch(this.mode) {
       case 'local':
         this.draw_board();
         this.start();
@@ -36,7 +36,7 @@ var GridGame = {
     }
   },
 
-  draw_board: function (){
+  draw_board: function() {
     this.init_dom();
     this.init_board();
     this.init_players();
@@ -65,7 +65,7 @@ var GridGame = {
     this.players = [];
     $.each(
       GridGame.data.players,
-      function (index, player_config) {
+      function(index, player_config) {
         player = new GridGame.classes.player(player_config);
         player.init();
         GridGame.players.push(player);
@@ -73,7 +73,7 @@ var GridGame = {
     )
   },
 
-  init_board: function () {
+  init_board: function() {
     this.board = new GridGame.classes.board();
     this.board.init();
   },
@@ -90,18 +90,18 @@ var GridGame = {
 
   // Operation
 
-  start: function () {
+  start: function() {
     self.process = setInterval(this.turn, this.turn_time);
   },
 
   stop: function() {
-    if (self.process) {
+    if(self.process) {
       clearInterval(self.process);
       self.process = null;
     }
   },
 
-  turn: function () {
+  turn: function() {
     GridGame.set_players_dead();
 
     GridGame.board.each_tile(function(tile) {tile.mark_damage_phase()});
@@ -114,12 +114,12 @@ var GridGame = {
     GridGame.turn_number += 1;
   },
 
-  spawning_turn: function () {
+  spawning_turn: function() {
     return (this.turn_number % this.spawn_interval == 0);
   },
 
   player: function(name) {
-    return $.grep(this.players, function(p){ return p.name == name; })[0];
+    return $.grep(this.players, function(p) { return p.name == name; })[0];
   },
 
   // All are marked dead at the start of the turn
@@ -138,18 +138,18 @@ var GridGame = {
     $.each(
       this.players,
       function(i, player) {
-        if (!player.still_alive) {
+        if(!player.still_alive) {
           player.dead = true;
         }
       }
     );
-    if (this.living_players().length <= 1) {
+    if(this.living_players().length <= 1) {
       console.log('the game is over!');
       ga("send", "event", "game", "ended");
       ga('send', {hitType: 'event', eventCategory: 'game', eventAction: 'game length', eventValue: this.turn_number});
       GridGame.stop();
     }
-    if (this.living_players().length <= 1) {
+    if(this.living_players().length <= 1) {
       var winner = this.living_players()[0].name;
       ga("send", "event", "game", (winner + "_won"));
     }
@@ -159,8 +159,8 @@ var GridGame = {
     var result = [];
     $.each(
       this.players,
-      function (i, player) {
-        if (!player.dead) {
+      function(i, player) {
+        if(!player.dead) {
           result.push(player)
         }
       }
@@ -175,23 +175,31 @@ var GridGame = {
   },
 
   wipe_out_opponents: function() {
-    console.log('wiping out opponents');
-    if (GridGame.active_player != null) {
-      console.log('wiping out all but ' + GridGame.active_player);
+    if(GridGame.active_player != null) {
       GridGame.board.each_tile(
         function(tile) {
-          if (tile.player && tile.player.name != GridGame.active_player) {
-            console.log("killing " + tile.x +':'+tile.y);
+          if(tile.player && tile.player.name != GridGame.active_player) {
             tile.kill();
           }
         }
       );
       GridGame.board.draw();
     }
+  },
+
+  clear_player: function(player) {
+    GridGame.board.each_tile(
+      function(tile) {
+        if(tile.player && tile.player.name == player) {
+          tile.kill();
+        }
+      }
+    );
+    GridGame.board.draw();
   }
 
 };
 
-$(window).ready(function () {
+$(window).ready(function() {
   GridGame.init();
 });

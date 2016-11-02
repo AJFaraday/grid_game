@@ -26,8 +26,13 @@ module GridGame
     end
 
     def join_channel(channel)
+      player = channel.next_player
+      if channel.full?
+        puts 'starting game'
+        channel.started = true
+      end
       {
-        player: channel.next_player,
+        player: player,
         status: (channel.full? ? 'start' : 'waiting'),
         em_channel: channel.event_machine_channel,
         action: 'join'
