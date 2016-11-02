@@ -17,3 +17,17 @@ match_four:
     - green
     - blue
     - yellow
+righttwix:
+  players:
+    - red
+    - green
+left-twix:
+  players:
+    - red
+    - green
+right-twix:
+  players:
+    - red
+    - green
+    - blue
+    - yellow
