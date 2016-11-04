@@ -91,14 +91,12 @@ var GridGame = {
   // Operation
 
   start: function() {
-    self.process = setInterval(this.turn, this.turn_time);
+    this.process = setCorrectingInterval(this.turn, this.turn_time);
   },
 
   stop: function() {
-    if(self.process) {
-      clearInterval(self.process);
-      self.process = null;
-    }
+    clearCorrectingInterval(this.process);
+    this.process = null;
   },
 
   turn: function() {
