@@ -1,3 +1,12 @@
+h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#grid_game {
+  float: left;
+}
+
 #game_space {
 
 }
@@ -80,11 +89,12 @@ table.game_board tr.row {
 }
 
 table.game_board tr.row td.tile {
-  height: 34px;
-  width: 34px;
+  height: 32px;
+  width: 32px;
   text-align: center;
   border: 1px darkgrey solid;
-  font-size: 24px;
+  font-size: 26px;
+  padding: 0px;
 }
 
 table.game_board tr.row td.tile_green {
@@ -107,28 +117,77 @@ table.game_board tr.row td.tile_yellow {
   color: orangered;
 }
 
-table.game_board tr.row td.tile_city small {
-  font-size:10px;
+table.game_board tr.row td.tile small {
+  font-size: 10px;
 }
 
+table.game_board tr.row td.tile_rock {
+  background-color: #777777;
+}
+
+table.game_board tr.row td.tile_wall {
+  background-color: #ff190E;
+  color: #dddddd;
+}
 
 .footer {
-  float:left;
+  float: left;
   width: 100%;
   font-size: 16px;
   color: darkgrey;
 }
 
-.footer p a{
+.footer p a {
   font-weight: bold;
   text-decoration: none;
   color: darkgrey;
 }
 
-.footer p a:visited{
+.footer p a:visited {
   font-weight: bold;
 }
 
-.footer p a:hover{
+.footer p a:hover {
   font-weight: bolder;
 }
+
+#api_space {
+  float: left;
+  min-width: 400px;
+  min-height: 20px;
+  background-color: lightgrey;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.button {
+  margin: 5px;
+  padding: 5px;
+  background-color: darkgreen;
+  color: white;
+  border-radius: 5px;
+  float: left;
+  width: 60px;
+  text-align: center;
+  user-select: none;
+}
+
+.api_space {
+  padding: 10px;
+  border-radius: 10px;
+  width: 250px;
+}
+
+textarea.code_field{
+
+}
+
+.api_0 {
+  background-color: lightgreen;
+}
+
+.api_1 {
+  background-color: lightpink;
+}
+
