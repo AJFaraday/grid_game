@@ -25,6 +25,7 @@
   <script type="text/javascript" src="./config/game.js"></script>
   <script type="text/javascript" src="./lib/positions.js"></script>
   <script type="text/javascript" src="./config/players.js"></script>
+  <script type="text/javascript" src="./config/bots.js"></script>
   <script type="text/javascript" src="./lib/data/key_maps.js"></script>
   <script type="text/javascript" src="./lib/data/key_display.js"></script>
 
@@ -40,12 +41,20 @@
   <script type="text/javascript" src="./lib/classes/board.js"></script>
   <script type="text/javascript" src="./lib/classes/player.js"></script>
   <script type="text/javascript" src="./lib/classes/keyboard.js"></script>
+  <script type="text/javascript" src="./lib/classes/api.js"></script>
+  <script type="text/javascript" src="./lib/api_ui.js"></script>
 
   <link rel="stylesheet" href="./style/grid_game.css"/>
 </head>
 <body>
   <h1>My Grid Game</h1>
   <div id="grid_game"></div>
+  <div id="api_space">
+    <div id="forms"></div>
+    <div class="button" data-action="start">Start</div>
+    <div class="button" data-action="stop">Stop</div>
+    <div class="button" data-action="reset">Reset</div>
+  </div>
   <div class="footer">
     <p>
       <a href="https://www.github.com/AJFaraday/grid_game" target="_blank">Grid Game</a>
