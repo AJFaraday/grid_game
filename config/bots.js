@@ -1,6 +1,6 @@
 GridGame.data.bots = {
   'All Towards': '808c86eb544d9efaf94a30efc91bdfaf',
-  'Code on Page': 'code',
+  'Custom': 'code',
   'Faraday Cage': 'd9eb9a70ad0dc0fb1885be0fce032adc',
   'Gist Id': 'bot_id',
   'Long Random': 'b9a0fe99060d9be1fc617bb7262f57be',

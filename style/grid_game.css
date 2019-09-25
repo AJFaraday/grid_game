@@ -179,7 +179,7 @@ table.game_board tr.row td.tile_wall {
   width: 250px;
 }
 
-textarea.code_field{
+textarea.code_field {
 
 }
 
@@ -189,5 +189,27 @@ textarea.code_field{
 
 .api_1 {
   background-color: lightpink;
+}
+
+.modal_background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.9;
+  background-color: #555555;
+  display:none;
+}
+
+.modal {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 1000px;
+  display:none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
 }
 
