@@ -206,10 +206,20 @@ textarea.code_field {
   position: absolute;
   left: 20px;
   top: 20px;
-  width: 1000px;
+  min-width: 1000px;
   display:none;
   background-color: white;
   border-radius: 10px;
-  padding: 10px;
+  border-style: solid;
+  border-width: 20px;
+  padding: 20px;
+}
+
+.modal.api_0 {
+  border-color: lightgreen;
+}
+
+.modal.api_1 {
+  border-color: lightpink;
 }
 
