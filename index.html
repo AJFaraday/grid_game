@@ -19,6 +19,7 @@
 
   <script type="text/javascript" src="./lib/external/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="./lib/grid_game.js"></script>
+  <script type="text/javascript" src="./lib/gist_cache.js"></script>
 
   <script type="text/javascript" src="./lib/resize_grid.js"></script>
 
@@ -68,5 +69,11 @@
     </p>
   </div>
   <div class="modal_background"></div>
+  <script type="text/javascript">
+    $(window).ready(function () {
+      GridGame.init();
+      GridGame.api_ui.init();
+    });
+  </script>
 </body>
 </html>
