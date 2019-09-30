@@ -1,0 +1,120 @@
+KotH: Bots to play the Grid Game
+
+
+This is Grid Game (link)
+
+(picture here)
+
+It's a game based on celular automata, where the aim is to remove all of the pieces belonging to your oponent.
+
+
+How it works:
+
+* Each player starts with one City (marked with C and a number), which will recularly send out walters (marked
+with a number, initially the number 1) in a given direction.
+* The player can change the direction of all of their walkers to be north, south, east or west.
+* When walkers can't go any further, they will stay still and can be joined by other walkers, increasing their number.
+* When 10 walkers join up, they become another city.
+* When walkers meet walkers an cities belonging to the opponent, they deal damage, reducing the number of the pieces
+* they've hit. This damage is dealt in both directions.
+* There is no way to replenish the health of a city.
+* The game ends when either player has no pieces remaining, or when a clear stale-mate is reached.
+
+## The Challenge
+
+To write a bot to play Grid Game, and defeat as many rival bots as possible.
+
+* A bot is some code which will be run on each turn of the game.
+* It can only be JavaScript, sorry.
+* The size of the code is immaterial.
+* An object named `api` will be provided as an interface to the player.
+* In this iteration, there is no way for your bot to know what it's opponent is doing. The challenge is to
+write a proactive (not reactive) strategy.
+
+## The API
+
+* **api.turn** - Returns the numbered turn the game is on.
+* **api.towardsX** - Aim your walkers towards the opponent on the East-West axis.
+* **api.towardsY** - Aim your walkers towards the opponent on the North-South axis.
+* **api.awayX** - Aim your walkers away from the opponent on the East-West axis.
+* **api.awayY** - Aim your walkers away from the opponent on the North-South axis.
+* **api.random_direction** - Aim you walkers in a randomly seelecttd direction.
+* **api.north** - Aim your walkers North if you're in the top-left corner. Rotated for other player. Alias of awayY.
+* **api.south** - Aim your walkers South if you're in the top-left corner. Rotated for other player. Alias of towardsY.
+* **api.east** - Aim your walkers East if you're in the top-left corner. Rotated for other player. Alias of towardsX.
+* **api.west** - Aim your walkers West if you're in the top-left corner. Rotated for other player. Alias of AwayX.
+
+_Note:_ The last direction method called will define the next direction the walkers move in.
+
+## How to write a bot
+
+_Note:_ I recommend playing a manual game or two first; to do this, grab a friend to play against and
+select 'Manual (simple)' in the footer.
+
+* Go to https://ajfaraday.github.io/grid_game/
+* Select a default bot as your base (in the green or red box)
+* Click Edit Code in the same coloured box.
+* Click Use when you're happy with it.
+
+To test it:
+
+* Select an opponent bot as the other colour (or 'Manual' if you'd like to challenge it yourself.
+* Open the developer console (f12) in case of errors in your code.
+* Click Start.
+* Watch the game unfold.
+* Click Reset and repeat the process as desired.
+
+## How to deploy your bot
+
+Once you've written a boss you'd like to keep:
+
+* Go to https://gist.github.com
+* Log in, if not already logged in.
+* (The default page is the form to create a new gist, this is where we want to be.)
+* Name the file 'bot.js'
+* Copy the code into bot.js
+* Save the gist
+* Copy the gist ID (an alphanumeric string found after the last forward slash in the URL).
+
+This Gist ID can now be used to import your bot into Grid Game at any time:
+
+* Select Gist Id in a coloured box.
+* Paste the ID into the field which appears.
+
+You will need to include this gist ID in your answer
+
+## Answer Format
+
+Your answer will consist of:
+
+* A Title, made up of a name for your bot and the gist ID
+* A brief description of the bot's strategy.
+* The code for your bot.
+* Any notes you wish to include.
+
+Example answer:
+
+### The Faraday Cage - d9eb9a70ad0dc0fb1885be0fce032adc
+
+The Faraday Cage is an arrangement of four cities in the player's starting corner, which
+this bot will attempt to build, which then allows it to repeatedly send two 9's towards the opponent.
+
+    if (api.turn() < 30) {
+      api.awayY();
+    } else if (api.turn() < 60) {
+      api.awayX();
+    } else {
+      if (api.turn() % 54 < 27) {
+        api.towardsY();
+      } else {
+        api.towardsX();
+      }
+    }
+
+This is named after Alan Faraday, the elder brother of the game creator, who discovered it while playing the game manually.
+
+It has proven difficult to defeat.
+
+## The Tournament
+
+
