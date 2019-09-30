@@ -10,13 +10,14 @@ It's a game based on celular automata, where the aim is to remove all of the pie
 
 How it works:
 
-* Each player starts with one City (marked with C and a number), which will recularly send out walters (marked
-with a number, initially the number 1) in a given direction.
+* There are two kinds of piece in the game, cities and walkers.
+* Each player starts with one City (marked with C and a number, which is it's health), which will regularly send out
+walters (marked with a number, initially the number 1) in a given direction.
 * The player can change the direction of all of their walkers to be north, south, east or west.
 * When walkers can't go any further, they will stay still and can be joined by other walkers, increasing their number.
 * When 10 walkers join up, they become another city.
-* When walkers meet walkers an cities belonging to the opponent, they deal damage, reducing the number of the pieces
-* they've hit. This damage is dealt in both directions.
+* When walkers meet walkers or cities belonging to the opponent, they deal damage, reducing the number on these pieces
+they've hit until they reach 0 and become inactive. This damage is dealt in both directions.
 * There is no way to replenish the health of a city.
 * The game ends when either player has no pieces remaining, or when a clear stale-mate is reached.
 
@@ -28,8 +29,8 @@ To write a bot to play Grid Game, and defeat as many rival bots as possible.
 * It can only be JavaScript, sorry.
 * The size of the code is immaterial.
 * An object named `api` will be provided as an interface to the player.
-* In this iteration, there is no way for your bot to know what it's opponent is doing. The challenge is to
-write a proactive (not reactive) strategy.
+* In this iteration of the challenge, there is no way for your bot to know what it's opponent is doing.
+The challenge is to write a proactive (not reactive) strategy.
 
 ## The API
 
@@ -117,4 +118,29 @@ It has proven difficult to defeat.
 
 ## The Tournament
 
+In order to determine the challenge winner, bots will be placed in a bracket tournament which will be streamed
+live, and recorded for posterity.
 
+Pause points:
+
+In tournament conditions, the game will pause automatically. First at turn 10,000 (around 1:40), then at 2,500 turn
+intervals until there's a clear winner or turn 20,000 is reached.
+
+Ending conditions:
+
+* Outright win - 4 points - There are no opponent  pieces left on the board.
+* Winning by numbers - 3 points - during any pause point a bot has a clear numerical advantage.
+* Winning on points - 2 points - If there's no clear winner at turn 20,000 (past round 1), points from previous rounds may be used as a tie break.
+* Draw - 1 point - If there's no clear winner at turn 20,000, a precise numeric count will be used to determine a winner. Best of these three metrics.
+  * Number of cities
+  * Number of cities + walkers
+  * Overall health of active pieces
+
+Broadcast at:
+
+
+
+
+
+(possible dates 8, 9, 15, 16 Nov)
+(London time and GMT are the same after 27th Oct)
