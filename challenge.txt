@@ -93,6 +93,10 @@ Your answer will consist of:
 * The code for your bot.
 * Any notes you wish to include.
 
+Note: I would like to include answers in the respository's code, partly to sidestep rate limiting on github's gist and
+partly to include more interesting bots for future users to challenge, Please clearly indicate if you consent to your
+bot becoming a part of the game.
+
 Example answer:
 
 ### The Faraday Cage - d9eb9a70ad0dc0fb1885be0fce032adc
@@ -115,6 +119,8 @@ this bot will attempt to build, which then allows it to repeatedly send two 9's 
 This is named after Alan Faraday, the elder brother of the game creator, who discovered it while playing the game manually.
 
 It has proven difficult to defeat.
+
+Please include this in the game.
 
 ## The Tournament
 
