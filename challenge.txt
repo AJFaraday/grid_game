@@ -88,14 +88,15 @@ You will need to include this gist ID in your answer
 
 Your answer will consist of:
 
-* A Title, made up of a name for your bot and the gist ID
+* A Title consisting of
+  * A name for your bot
+  * The gist ID (which should be a link the gist).
 * A brief description of the bot's strategy.
-* The code for your bot.
 * Any notes you wish to include.
 
 Note: I would like to include answers in the respository's code, partly to sidestep rate limiting on github's gist and
-partly to include more interesting bots for future users to challenge, Please clearly indicate if you consent to your
-bot becoming a part of the game.
+partly to include more interesting bots for future users to challenge or modify. Please clearly indicate if you
+consent to your bot becoming a part of the game or not.
 
 Example answer:
 
@@ -103,18 +104,6 @@ Example answer:
 
 The Faraday Cage is an arrangement of four cities in the player's starting corner, which
 this bot will attempt to build, which then allows it to repeatedly send two 9's towards the opponent.
-
-    if (api.turn() < 30) {
-      api.awayY();
-    } else if (api.turn() < 60) {
-      api.awayX();
-    } else {
-      if (api.turn() % 54 < 27) {
-        api.towardsY();
-      } else {
-        api.towardsX();
-      }
-    }
 
 This is named after Alan Faraday, the elder brother of the game creator, who discovered it while playing the game manually.
 

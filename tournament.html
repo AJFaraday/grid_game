@@ -63,6 +63,31 @@
       <div class="button" data-action="stop">Stop</div>
       <div class="button" data-action="reset">Reset</div>
     </div>
+    <br clear="both"/>
+    <div class="info">
+      <h3>Info</h3>
+      <p class="turn"><b>Turn:</b> <span id="turn">0</span></p>
+      <table id="data">
+        <tr>
+          <th>Cities</th>
+          <td data-role="cities" class=green>0</td>
+          <td data-role="cities" class="red">0</td>
+        </tr>
+
+        <tr>
+          <th>Walkers</th>
+          <td data-role="score" class=green>0</td>
+          <td data-role="score" class="red">0</td>
+        </tr>
+
+        <tr>
+          <th>Total health</th>
+          <td data-role="score" class=green>0</td>
+          <td data-role="score" class="red">0</td>
+        </tr>
+
+      </table>
+    </div>
     <div class="footer">
       <p>
         <a href="https://www.github.com/AJFaraday/grid_game" target="_blank">Grid Game</a>
@@ -86,7 +111,7 @@
     <div class="modal_background"></div>
     <script type="text/javascript">
       $(window).ready(function() {
-        GridGame.init();
+        GridGame.init({tournament: true});
         GridGame.api_ui.init();
       });
     </script>

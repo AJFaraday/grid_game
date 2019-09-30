@@ -224,3 +224,34 @@ textarea.code_field {
   border-color: lightpink;
 }
 
+.info {
+  width: 100%;
+}
+
+.turn {
+  font-size: 30px;
+
+}
+
+.info table#data {
+  /*display: none;*/
+  font-size: 30px;
+}
+
+.info table#data tr {
+
+}
+
+.info table#data tr td{
+  padding: 5px;
+  min-width: 50px;
+  text-align: right;
+}
+
+.info table#data tr td.green{
+  background-color: lightgreen;
+}
+
+.info table#data tr td.red{
+  background-color: lightpink;
+}
