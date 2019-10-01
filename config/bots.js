@@ -8,3 +8,4 @@ GridGame.data.bots = {
   'Rotate': '6634a7f381bb679ee7c2d90d93588d66',
   'Short Random': 'b16df33acb0f0c7830d2ca2d656f80be'
 };
+
