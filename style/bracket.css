@@ -1,0 +1,17 @@
+.team_display {
+  width: 45%;
+  float: left;
+  min-height: 50px;
+  margin: 1%;
+  border-radius: 10px;
+  padding:10px;
+}
+
+#green{
+  background-color: lightgreen;
+}
+
+#red {
+  background-color: lightpink;
+}
+
