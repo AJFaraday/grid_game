@@ -117,10 +117,18 @@ Ending conditions:
 
 * Outright win - There are no opponent pieces left on the board.
 * Winning by numbers - during any pause point a bot has an insurmountable numerical advantage.
-* Draw - If there's no clear winner at turn 3000, a precise numeric count will be used to determine a winner. Best of these three metrics.
+* Draw - If there's no clear winner at turn 3,000, a precise numeric count will be used to determine a winner. Best of these three metrics.
   * Number of cities
   * Number of cities + walkers
   * Overall health of active pieces
+
+Qualification:
+
+In order to have a simple, single elimination tournament, there will have to be 4, 8, 16 or 32 initial competitors. Depending on the number of replies I may have to add or remove some bots from the tournament.
+
+If we are just short of one of these numbers, I will add in some of the standard bots (already in the code).
+
+If there are too many, I will select the answers with the most upvotes on this question.
 
 Broadcast at:
 
