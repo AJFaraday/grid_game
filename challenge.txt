@@ -11,13 +11,12 @@ It's a game based on celular automata, where the aim is to remove all of the pie
 How it works:
 
 * There are two kinds of piece in the game, cities and walkers.
-* Each player starts with one City (marked with C and a number, which is it's health), which will regularly send out
-walters (marked with a number, initially the number 1) in a given direction.
-* The player can change the direction of all of their walkers to be north, south, east or west.
+* Each player starts with one City (marked with C and a number, which is it's health), which will regularly send out walkers (marked with a number, initially the number 1) in a given direction.
+* The player can change the direction of all of their walkers to be north, south, east or west a any time.
 * When walkers can't go any further, they will stay still and can be joined by other walkers, increasing their number.
 * When 10 walkers join up, they become another city.
-* When walkers meet walkers or cities belonging to the opponent, they deal damage, reducing the number on these pieces
-they've hit until they reach 0 and become inactive. This damage is dealt in both directions.
+* When walkers meet walkers or cities belonging to the opponent, they deal damage to the oponent equal to their number, and take damage equal to the oponents number.
+* Damage is dealt to all adjacent oponent pieces.
 * There is no way to replenish the health of a city.
 * The game ends when either player has no pieces remaining, or when a clear stale-mate is reached.
 
@@ -28,9 +27,8 @@ To write a bot to play Grid Game, and defeat as many rival bots as possible.
 * A bot is some code which will be run on each turn of the game.
 * It can only be JavaScript, sorry.
 * The size of the code is immaterial.
-* An object named `api` will be provided as an interface to the player.
-* In this iteration of the challenge, there is no way for your bot to know what it's opponent is doing.
-The challenge is to write a proactive (not reactive) strategy.
+* An object named `api` will be provided as an interface to the player from your bot.
+* In this iteration of the challenge, there is no way for your bot to know what it's opponent is doing. The challenge is to write a proactive (not reactive) strategy.
 
 ## The API
 
@@ -39,18 +37,17 @@ The challenge is to write a proactive (not reactive) strategy.
 * **api.towardsY** - Aim your walkers towards the opponent on the North-South axis.
 * **api.awayX** - Aim your walkers away from the opponent on the East-West axis.
 * **api.awayY** - Aim your walkers away from the opponent on the North-South axis.
-* **api.random_direction** - Aim you walkers in a randomly seelecttd direction.
-* **api.north** - Aim your walkers North if you're in the top-left corner. Rotated for other player. Alias of awayY.
-* **api.south** - Aim your walkers South if you're in the top-left corner. Rotated for other player. Alias of towardsY.
-* **api.east** - Aim your walkers East if you're in the top-left corner. Rotated for other player. Alias of towardsX.
-* **api.west** - Aim your walkers West if you're in the top-left corner. Rotated for other player. Alias of AwayX.
+* **api.random_direction** - Aim you walkers in a randomly seelected direction.
+* **api.north** - Alias of awayY. North for green player, South for red player.
+* **api.south** - Alias of towardsY. South for green player, North for red player.
+* **api.east** - Alias of towardsX. East for green player, West for red player.
+* **api.west** - Alias of AwayX. West for green player, East for red player.
 
-_Note:_ The last direction method called will define the next direction the walkers move in.
+_Note:_ The last direction method called will define the next direction the walkers move in from that turn until a different direction is called.
 
 ## How to write a bot
 
-_Note:_ I recommend playing a manual game or two first; to do this, grab a friend to play against and
-select 'Manual (simple)' in the footer.
+_Note:_ I recommend playing a manual game or two first; to do this, grab a friend to play against and select 'Manual (simple)' in the footer.
 
 * Go to https://ajfaraday.github.io/grid_game/
 * Select a default bot as your base (in the green or red box)
@@ -94,39 +91,33 @@ Your answer will consist of:
 * A brief description of the bot's strategy.
 * Any notes you wish to include.
 
-Note: I would like to include answers in the respository's code, partly to sidestep rate limiting on github's gist and
-partly to include more interesting bots for future users to challenge or modify. Please clearly indicate if you
-consent to your bot becoming a part of the game or not.
+Note: I would like to include answers in the respository's code, partly to sidestep rate limiting on github's gist and partly to include more interesting bots for future users to challenge or modify. Please clearly indicate if you consent to your bot becoming a part of the game code or not.
 
 Example answer:
 
 ### The Faraday Cage - d9eb9a70ad0dc0fb1885be0fce032adc
 
-The Faraday Cage is an arrangement of four cities in the player's starting corner, which
-this bot will attempt to build, which then allows it to repeatedly send two 9's towards the opponent.
+The Faraday Cage is an arrangement of four cities in the player's starting corner, which this bot will attempt to build, which then allows it to repeatedly send two 9's towards the opponent.
 
 This is named after Alan Faraday, the elder brother of the game creator, who discovered it while playing the game manually.
 
-It has proven difficult to defeat.
+* It has proven difficult to defeat.
 
 Please include this in the game.
 
 ## The Tournament
 
-In order to determine the challenge winner, bots will be placed in a bracket tournament which will be streamed
-live, and recorded for posterity.
+In order to determine the challenge winner, bots will be placed in a bracket tournament which will be streamed live, and recorded for posterity.
 
 Pause points:
 
-In tournament conditions, the game will pause automatically. First at turn 10,000 (around 1:40), then at 2,500 turn
-intervals until there's a clear winner or turn 20,000 is reached.
+In tournament conditions, the game will pause automatically turn 1,000, then every 500 turns to allow me to assess the state of the game and declare a winner if it looks like the game will not be won outright.
 
 Ending conditions:
 
-* Outright win - 4 points - There are no opponent  pieces left on the board.
-* Winning by numbers - 3 points - during any pause point a bot has a clear numerical advantage.
-* Winning on points - 2 points - If there's no clear winner at turn 20,000 (past round 1), points from previous rounds may be used as a tie break.
-* Draw - 1 point - If there's no clear winner at turn 20,000, a precise numeric count will be used to determine a winner. Best of these three metrics.
+* Outright win - There are no opponent pieces left on the board.
+* Winning by numbers - during any pause point a bot has an insurmountable numerical advantage.
+* Draw - If there's no clear winner at turn 3000, a precise numeric count will be used to determine a winner. Best of these three metrics.
   * Number of cities
   * Number of cities + walkers
   * Overall health of active pieces
