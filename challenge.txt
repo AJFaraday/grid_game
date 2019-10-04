@@ -5,7 +5,7 @@ This is Grid Game (link)
 
 (picture here)
 
-It's a game based on celular automata, where the aim is to remove all of the pieces belonging to your oponent.
+It's a game based on cellar automata, where the aim is to remove all of the pieces belonging to your opponent.
 
 
 How it works:
@@ -15,8 +15,8 @@ How it works:
 * The player can change the direction of all of their walkers to be north, south, east or west a any time.
 * When walkers can't go any further, they will stay still and can be joined by other walkers, increasing their number.
 * When 10 walkers join up, they become another city.
-* When walkers meet walkers or cities belonging to the opponent, they deal damage to the oponent equal to their number, and take damage equal to the oponents number.
-* Damage is dealt to all adjacent oponent pieces.
+* When walkers meet walkers or cities belonging to the opponent, they deal damage to the opponent equal to their number, and take damage equal to the opponents number.
+* Damage is dealt to all adjacent opponent pieces.
 * There is no way to replenish the health of a city.
 * The game ends when either player has no pieces remaining, or when a clear stale-mate is reached.
 
@@ -37,7 +37,7 @@ To write a bot to play Grid Game, and defeat as many rival bots as possible.
 * **api.towardsY** - Aim your walkers towards the opponent on the North-South axis.
 * **api.awayX** - Aim your walkers away from the opponent on the East-West axis.
 * **api.awayY** - Aim your walkers away from the opponent on the North-South axis.
-* **api.random_direction** - Aim you walkers in a randomly seelected direction.
+* **api.random_direction** - Aim you walkers in a randomly selected direction.
 * **api.north** - Alias of awayY. North for green player, South for red player.
 * **api.south** - Alias of towardsY. South for green player, North for red player.
 * **api.east** - Alias of towardsX. East for green player, West for red player.
@@ -128,7 +128,7 @@ In order to have a simple, single elimination tournament, there will have to be 
 
 If we are just short of one of these numbers, I will add in some of the standard bots (already in the code).
 
-If there are too many, I will select the answers with the most upvotes on this question.
+If there are too many, I will select the answers with the most up-votes on this question.
 
 Broadcast at:
 
