@@ -111,9 +111,38 @@
     </div>
     <div class="modal_background"></div>
     <script type="text/javascript">
+      function set_player_to_gist(colour, gist) {
+        var api_space;
+        if (colour == 'green') {
+          api_space = $('div.api_space.api_0');
+        } else if (colour == 'red') {
+          api_space = $('div.api_space.api_1');
+        }
+        var select = api_space.find('select');
+        var options = [];
+        select.find('option').each(function (i, o) {
+          options.push($(o).attr('value'));
+        });
+        if (options.includes(gist)) {
+          select.val(gist).trigger('change');
+        } else {
+          select.val('bot_id').trigger('change');
+          select.siblings('input').val(gist).trigger('change');
+        }
+      }
+
       $(window).ready(function () {
         GridGame.init({tournament: true, turn_time: 50});
         GridGame.api_ui.init();
+        url = new URL(window.location);
+        red_gist = url.searchParams.get('red');
+        if (red_gist) {
+          set_player_to_gist('red', red_gist)
+        }
+        green_gist = url.searchParams.get('green');
+        if (green_gist) {
+          set_player_to_gist('green', green_gist)
+        }
       });
     </script>
   </body>
