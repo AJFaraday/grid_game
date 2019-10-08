@@ -5,17 +5,17 @@ This is Grid Game (link)
 
 (picture here)
 
-It's a game based on cellar automata, where the aim is to remove all of the pieces belonging to your opponent.
+It's a game based on cellular automata, where the aim is to remove all of the pieces belonging to your opponent.
 
 
 How it works:
 
 * There are two kinds of piece in the game, cities and walkers.
-* Each player starts with one City (marked with C and a number, which is it's health), which will regularly send out walkers (marked with a number, initially the number 1) in a given direction.
-* The player can change the direction of all of their walkers to be north, south, east or west a any time.
+* Each player starts with one city (marked with C and a number, which is it's health), which will regularly send out walkers (marked with a number, initially the number 1) in a given direction.
+* The player can change the direction of all of their walkers to be north, south, east or west at any time.
 * When walkers can't go any further, they will stay still and can be joined by other walkers, increasing their number.
 * When 10 walkers join up, they become another city.
-* When walkers meet walkers or cities belonging to the opponent, they deal damage to the opponent equal to their number, and take damage equal to the opponents number.
+* When walkers meet walkers or cities belonging to the opponent, they deal damage to the opponent equal to their number, and take damage equal to the opponent's number.
 * Damage is dealt to all adjacent opponent pieces.
 * There is no way to replenish the health of a city.
 * The game ends when either player has no pieces remaining, or when a clear stale-mate is reached.
@@ -37,7 +37,7 @@ To write a bot to play Grid Game, and defeat as many rival bots as possible.
 * **api.towardsY** - Aim your walkers towards the opponent on the North-South axis.
 * **api.awayX** - Aim your walkers away from the opponent on the East-West axis.
 * **api.awayY** - Aim your walkers away from the opponent on the North-South axis.
-* **api.random_direction** - Aim you walkers in a randomly selected direction.
+* **api.random_direction** - Aim your walkers in a randomly selected direction.
 * **api.north** - Alias of awayY. North for green player, South for red player.
 * **api.south** - Alias of towardsY. South for green player, North for red player.
 * **api.east** - Alias of towardsX. East for green player, West for red player.
@@ -79,7 +79,7 @@ This Gist ID can now be used to import your bot into Grid Game at any time:
 * Select Gist Id in a coloured box.
 * Paste the ID into the field which appears.
 
-You will need to include this gist ID in your answer
+You will need to include this gist ID in your answer.
 
 ## Answer Format
 
@@ -111,7 +111,7 @@ In order to determine the challenge winner, bots will be placed in a bracket tou
 
 Pause points:
 
-In tournament conditions, the game will pause automatically turn 1,000, then every 500 turns to allow me to assess the state of the game and declare a winner if it looks like the game will not be won outright.
+In tournament conditions, the game will pause automatically upon turn 1,000, then every 500 turns to allow me to assess the state of the game and declare a winner if it looks like the game will not be won outright.
 
 Ending conditions:
 
