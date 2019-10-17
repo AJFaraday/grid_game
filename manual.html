@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'XXX-google-analytics-id-XXX', 'auto');
+    ga('send', 'pageview');
+
+  </script> 
+
+  <title>Grid Game</title>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+  <script type="text/javascript" src="./lib/external/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="./lib/grid_game.js"></script>
+  <script type="text/javascript" src="./lib/gist_cache.js"></script>
+
+  <script type="text/javascript" src="./lib/resize_grid.js"></script>
+
+  <script type="text/javascript" src="./config/game.js"></script>
+  <script type="text/javascript" src="./lib/positions.js"></script>
+  <script type="text/javascript" src="./config/players.js"></script>
+  <script type="text/javascript" src="./lib/info.js"></script>>
+  <script type="text/javascript" src="./lib/data/key_maps.js"></script>
+  <script type="text/javascript" src="./lib/data/key_display.js"></script>
+
+  <script type="text/javascript" src="./lib/player_components/control_panel.js"></script>
+  <script type="text/javascript" src="./lib/player_components/direction_change.js"></script>
+
+  <script type="text/javascript" src="./lib/turn_phases/mark_movement_phase.js"></script>
+  <script type="text/javascript" src="./lib/turn_phases/do_movement_phase.js"></script>
+  <script type="text/javascript" src="./lib/turn_phases/mark_damage_phase.js"></script>
+  <script type="text/javascript" src="./lib/turn_phases/do_damage_phase.js"></script>
+
+  <script type="text/javascript" src="./lib/classes/tile.js"></script>
+  <script type="text/javascript" src="./lib/classes/board.js"></script>
+  <script type="text/javascript" src="./lib/classes/player.js"></script>
+  <script type="text/javascript" src="./lib/classes/keyboard.js"></script>
+  <script type="text/javascript" src="./lib/classes/api.js"></script>
+  <script type="text/javascript" src="./lib/api_ui.js"></script>
+
+  <link rel="stylesheet" href="./style/grid_game.css"/>
+</head>
+<body>
+  <h1>Grid Game</h1>
+  <div id="grid_game"></div>
+  <div class="footer">
+    <p>
+      <a href="https://www.github.com/AJFaraday/grid_game" target="_blank">Grid Game</a>
+      is a board-like game concept by
+      <a href="https://www.twitter.com/MarmiteJunction" target="_blank">Andrew Faraday</a>.
+    </p>
+    <p>It's a pretty juvenile project, so bear with me. It's still being built and updated.</p>
+    <p>
+      Feel free to let me know about any issues you find using the
+      <a href="https://github.com/AJFaraday/grid_game/issues" target="_blank">issue tracker</a>.
+    </p>
+    <p>Modes of play:</p>
+    <ul>
+      <li><a href="index.html">Bot v Bot</a></li>
+      <li><a href="manual.html">Manual (simple)</a></li>
+      <li><a href="obstacles.html">Manual (with obstacles)</a></li>
+      <li><a href="tournament.html">Bot v Bot (Tournament Mode)</a></li>
+    </ul>
+  </div>
+  <div class="modal_background"></div>
+  <script type="text/javascript">
+    $(window).ready(function () {
+      GridGame.init();
+      GridGame.start();
+    });
+  </script>
+</body>
+</html>

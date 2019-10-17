@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <script type="text/javascript" src="./lib/external/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="./lib/external/jquery.bracket.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./lib/external/jquery.bracket.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./style/bracket.css"/>
+    <script type="text/javascript" src="./lib/brackets/main.js"></script>
+    <script type="text/javascript" src="./lib/brackets/teams.js"></script>
+  </head>
+  <body>
+    <div id="tournament_brackets"></div>
+    <div id="match_panel"></div>
+    <br clear="both"/>
+    <div class="team_display" id="green"></div>
+    <div class="team_display" id="red"></div>
+
+    <script type="text/javascript">
+        Brackets.init();
+    </script>
+  </body>
+</html>

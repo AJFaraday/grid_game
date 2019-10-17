@@ -3,6 +3,10 @@ h1 {
   margin-bottom: 0px;
 }
 
+#grid_game {
+  float: left;
+}
+
 #game_space {
 
 }
@@ -114,7 +118,7 @@ table.game_board tr.row td.tile_yellow {
 }
 
 table.game_board tr.row td.tile small {
-  font-size:10px;
+  font-size: 10px;
 }
 
 table.game_board tr.row td.tile_rock {
@@ -127,22 +131,127 @@ table.game_board tr.row td.tile_wall {
 }
 
 .footer {
-  float:left;
+  float: left;
   width: 100%;
   font-size: 16px;
   color: darkgrey;
 }
 
-.footer p a{
+.footer p a {
   font-weight: bold;
   text-decoration: none;
   color: darkgrey;
 }
 
-.footer p a:visited{
+.footer p a:visited {
   font-weight: bold;
 }
 
-.footer p a:hover{
+.footer p a:hover {
   font-weight: bolder;
+}
+
+#api_space {
+  float: left;
+  min-width: 400px;
+  min-height: 20px;
+  background-color: lightgrey;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.button {
+  margin: 5px;
+  padding: 5px;
+  background-color: darkgreen;
+  color: white;
+  border-radius: 5px;
+  float: left;
+  width: 60px;
+  text-align: center;
+  user-select: none;
+}
+
+.api_space {
+  padding: 10px;
+  border-radius: 10px;
+  width: 250px;
+  height: 30px;
+}
+
+textarea.code_field {
+
+}
+
+.api_0 {
+  background-color: lightgreen;
+}
+
+.api_1 {
+  background-color: lightpink;
+}
+
+.modal_background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.9;
+  background-color: #555555;
+  display:none;
+}
+
+.modal {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  min-width: 1000px;
+  display:none;
+  background-color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 20px;
+  padding: 20px;
+}
+
+.modal.api_0 {
+  border-color: lightgreen;
+}
+
+.modal.api_1 {
+  border-color: lightpink;
+}
+
+.info {
+  width: 100%;
+}
+
+.turn {
+  font-size: 30px;
+
+}
+
+.info table#data {
+  /*display: none;*/
+  font-size: 30px;
+}
+
+.info table#data tr {
+
+}
+
+.info table#data tr td{
+  padding: 5px;
+  min-width: 50px;
+  text-align: right;
+}
+
+.info table#data tr td.green{
+  background-color: lightgreen;
+}
+
+.info table#data tr td.red{
+  background-color: lightpink;
 }

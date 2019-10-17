@@ -54,6 +54,7 @@
     <script type="text/javascript" src="./lib/api_ui.js"></script>
 
     <link rel="stylesheet" href="./style/grid_game.css"/>
+    <script src="lib/info.js"></script>
   </head>
   <body>
     <h1>Grid Game</h1>
@@ -63,6 +64,30 @@
       <div class="button" data-action="start">Start</div>
       <div class="button" data-action="stop">Stop</div>
       <div class="button" data-action="reset">Reset</div>
+    </div>
+    <br clear="both"/>
+    <div class="info">
+      <p class="turn"><b>Turn:</b> <span id="turn">0</span></p>
+      <table id="data">
+        <tr>
+          <th>Cities</th>
+          <td data-role="cities" class=green>0</td>
+          <td data-role="cities" class="red">0</td>
+        </tr>
+
+        <tr>
+          <th>Walkers</th>
+          <td data-role="walkers" class=green>0</td>
+          <td data-role="walkers" class="red">0</td>
+        </tr>
+
+        <tr>
+          <th>Total health</th>
+          <td data-role="overall" class=green>0</td>
+          <td data-role="overall" class="red">0</td>
+        </tr>
+
+      </table>
     </div>
     <div class="footer">
       <p>
@@ -86,9 +111,51 @@
     </div>
     <div class="modal_background"></div>
     <script type="text/javascript">
+      function set_player_to_gist(colour, gist) {
+        var api_space;
+        if(colour == 'green') {
+          api_space = $('div.api_space.api_0');
+        } else if(colour == 'red') {
+          api_space = $('div.api_space.api_1');
+        }
+        var select = api_space.find('select');
+        var options = [];
+        select.find('option').each(function(i, o) {
+          options.push($(o).attr('value'));
+        });
+        if(options.includes(gist)) {
+          select.val(gist).trigger('change');
+        } else {
+          select.val('bot_id').trigger('change');
+          select.siblings('input').val(gist).trigger('change');
+        }
+      }
+
       $(window).ready(function() {
-        GridGame.init();
+        GridGame.init(
+          {
+            tournament: true,
+            turn_time: 50
+          }
+        );
         GridGame.api_ui.init();
+        url = new URL(window.location);
+        red_gist = url.searchParams.get('red');
+        if(red_gist) {
+          set_player_to_gist('red', red_gist)
+        }
+        green_gist = url.searchParams.get('green');
+        if(green_gist) {
+          set_player_to_gist('green', green_gist)
+        }
+
+        GridGame.callbacks.push(
+          function() {
+            if ((GridGame.turn_number % 500) == 0) {
+              GridGame.stop();
+            }
+          }
+        );
       });
     </script>
   </body>

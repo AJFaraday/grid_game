@@ -1,0 +1,47 @@
+.team_display {
+  width: 45%;
+  float: left;
+  min-height: 50px;
+  margin: 1%;
+  border-radius: 10px;
+  padding:10px;
+}
+
+#match_panel  {
+  width: 45%;
+  float: left;
+  min-height: 50px;
+  margin: 1%;
+  margin-bottom: 1px;
+  border-radius: 10px;
+  padding:10px;
+  background-color: lightblue;
+}
+
+.button {
+  margin: 5px;
+  padding: 5px;
+  background-color: lightyellow;
+  color: black;
+  border-radius: 5px;
+  float: left;
+  width: 60px;
+  text-align: center;
+  user-select: none;
+}
+
+#green{
+  background-color: lightgreen;
+}
+
+#red {
+  background-color: lightpink;
+}
+
+.green{
+  background-color: lightgreen;
+}
+
+.red {
+  background-color: lightpink;
+}
