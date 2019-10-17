@@ -3,11 +3,11 @@
   <head>
 
     <script>
-      (function (i, s, o, g, r, a, m) {
+      (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
         a = s.createElement(o),
           m = s.getElementsByTagName(o)[0];
         a.async = 1;
@@ -54,6 +54,7 @@
     <script type="text/javascript" src="./lib/api_ui.js"></script>
 
     <link rel="stylesheet" href="./style/grid_game.css"/>
+    <script src="lib/info.js"></script>
   </head>
   <body>
     <h1>Grid Game</h1>
@@ -112,17 +113,17 @@
     <script type="text/javascript">
       function set_player_to_gist(colour, gist) {
         var api_space;
-        if (colour == 'green') {
+        if(colour == 'green') {
           api_space = $('div.api_space.api_0');
-        } else if (colour == 'red') {
+        } else if(colour == 'red') {
           api_space = $('div.api_space.api_1');
         }
         var select = api_space.find('select');
         var options = [];
-        select.find('option').each(function (i, o) {
+        select.find('option').each(function(i, o) {
           options.push($(o).attr('value'));
         });
-        if (options.includes(gist)) {
+        if(options.includes(gist)) {
           select.val(gist).trigger('change');
         } else {
           select.val('bot_id').trigger('change');
@@ -130,18 +131,31 @@
         }
       }
 
-      $(window).ready(function () {
-        GridGame.init({tournament: true, turn_time: 50});
+      $(window).ready(function() {
+        GridGame.init(
+          {
+            tournament: true,
+            turn_time: 50
+          }
+        );
         GridGame.api_ui.init();
         url = new URL(window.location);
         red_gist = url.searchParams.get('red');
-        if (red_gist) {
+        if(red_gist) {
           set_player_to_gist('red', red_gist)
         }
         green_gist = url.searchParams.get('green');
-        if (green_gist) {
+        if(green_gist) {
           set_player_to_gist('green', green_gist)
         }
+
+        GridGame.callbacks.push(
+          function() {
+            if ((GridGame.turn_number % 500) == 0) {
+              GridGame.stop();
+            }
+          }
+        );
       });
     </script>
   </body>
