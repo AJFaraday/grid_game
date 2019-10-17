@@ -54,6 +54,7 @@
     <script type="text/javascript" src="./lib/api_ui.js"></script>
 
     <link rel="stylesheet" href="./style/grid_game.css"/>
+    <script src="lib/info.js"></script>
   </head>
   <body>
     <h1>Grid Game</h1>
@@ -134,7 +135,7 @@
         GridGame.init(
           {
             tournament: true,
-            turn_time: 50,
+            turn_time: 5,
             width: 23, // works at 19, almost at 23
             height: 12
           }
@@ -149,6 +150,18 @@
         if(green_gist) {
           set_player_to_gist('green', green_gist)
         }
+
+        // tODO remove when you've worked this out
+        GridGame.callbacks.push(
+          function() {
+            // TODO remove (won't make a great game)
+            var hash = GridGame.info.get_overall_health();
+            if (hash.red != hash.green) {
+              GridGame.stop();
+            }
+            //TODO add periodic pausing for tournaments
+          }
+        );
       });
     </script>
   </body>
