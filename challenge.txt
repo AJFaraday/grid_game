@@ -42,6 +42,7 @@ To write a bot to play Grid Game, and defeat as many rival bots as possible.
 * **api.south** - Alias of towardsY. South for green player, North for red player.
 * **api.east** - Alias of towardsX. East for green player, West for red player.
 * **api.west** - Alias of AwayX. West for green player, East for red player.
+* **api.spawning_turn** - Returns a boolean which if true if the Cities are going to send out a Walker this turn.
 
 _Note:_ The last direction method called will define the next direction the walkers move in from that turn until a different direction is called.
 
@@ -111,7 +112,7 @@ In order to determine the challenge winner, bots will be placed in a bracket tou
 
 Pause points:
 
-In tournament conditions, the game will pause automatically upon turn 1,000, then every 500 turns to allow me to assess the state of the game and declare a winner if it looks like the game will not be won outright.
+In tournament conditions, the game will pause automatically every 500 turns to allow me to assess the state of the game and declare a winner if it looks like the game will not be won outright.
 
 Ending conditions:
 

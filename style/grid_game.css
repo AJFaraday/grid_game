@@ -255,3 +255,23 @@ textarea.code_field {
 .info table#data tr td.red{
   background-color: lightpink;
 }
+
+img.indicator_arrow {
+  float:left;
+}
+
+img.east {
+  transform: rotate(0deg);
+}
+
+img.west {
+  transform: rotate(180deg);
+}
+
+img.south {
+  transform: rotate(90deg);
+}
+
+img.north {
+  transform: rotate(270deg);
+}
