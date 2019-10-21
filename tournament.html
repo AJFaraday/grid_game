@@ -135,9 +135,7 @@
         GridGame.init(
           {
             tournament: true,
-            turn_time: 5,
-            width: 20, // works at 19, almost at 23
-            height: 12
+            turn_time: 50
           }
         );
         GridGame.api_ui.init();
@@ -153,9 +151,7 @@
 
         GridGame.callbacks.push(
           function() {
-            // TODO remove (won't make a great game)
-            var hash = GridGame.info.get_overall_health();
-            if (hash.red != hash.green) {
+            if ((GridGame.turn_number % 500) == 0) {
               GridGame.stop();
             }
           }
