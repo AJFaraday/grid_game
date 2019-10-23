@@ -176,8 +176,8 @@ table.game_board tr.row td.tile_wall {
 .api_space {
   padding: 10px;
   border-radius: 10px;
-  width: 250px;
-  height: 30px;
+  width: 320px;
+  min-height: 30px;
 }
 
 textarea.code_field {
