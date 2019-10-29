@@ -16,9 +16,10 @@ GridGame.data.bots = {
   'BradC - Quad Rush': 'a0a4a9f3c8b8863392f109fdfd52af00-stored',
   'Brilliand - Backstabber': '2d632fb11ea1a7b1b73788d396a6a45d-stored',
   'Brilliand - Cage Bar Cutter': '49d7afbe8bb6d542acc871ac40d12e83-stored',
-  'Brilliand - CBC Goes With Everything': '54e4de5b03423cc19a1ec0e22f32a981-stored',
+  'Brilliand - CBC Goes With Everything': 'f904da9534cf91ff2d5d399f59757ebc-stored',
+  'Brilliand - CBC Forever': '9c65942bf924d9bb09e99d22daf0d8d0-stored',
   'Brilliand - Feint': 'cb68f09d808b5de34daf5c45b46f2bea-stored',
-  'Brilliand - Galeforc': '294c357b051e6e165d18657748d02cfe-stored',
+  'Brilliand - Galeforce': '294c357b051e6e165d18657748d02cfe-stored',
   'Brilliand - Line Drive': '54e4de5b03423cc19a1ec0e22f32a981-stored',
   'william porter - Twin Cities': '46b9d27b1994c35a8ef214c1b2067609-stored',
 
