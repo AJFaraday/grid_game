@@ -21,8 +21,6 @@ GridGame.data.bots = {
   'Brilliand - Feint': 'cb68f09d808b5de34daf5c45b46f2bea-stored',
   'Brilliand - Galeforce': '294c357b051e6e165d18657748d02cfe-stored',
   'Brilliand - Line Drive': '54e4de5b03423cc19a1ec0e22f32a981-stored',
-  'william porter - Twin Cities': '46b9d27b1994c35a8ef214c1b2067609-stored',
-
-
+  'william porter - Twin Cities': '46b9d27b1994c35a8ef214c1b2067609-stored'
 };
 
